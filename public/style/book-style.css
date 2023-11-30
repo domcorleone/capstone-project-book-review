@@ -1,0 +1,114 @@
+
+*{
+    box-sizing: border-box;   
+}
+
+:root {
+    --container-bg: #0000001a;
+    --card-bg: white;
+    --edit-btn-bg: #0d6efd;
+    --edit-btn-hover-bg: #0b5ed7;
+    --edit-btn-color: #fff;
+    --delete-btn-bg: #dc3545;
+    --delete-btn-hover-color: #fff;
+    --delete-btn-hover-bg: #bb2d3b;
+  }
+
+  body {
+    color: whitesmoke;
+  }
+
+/* .container {
+    width: 35%; // wide screens will present with 50% of whole screen
+    background-color: var(--container-bg);
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    justify-content: center;
+    min-width: 280px; // small screen will present not less than 280px 
+    border-radius: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+} */
+
+.flex-container .item.grid {
+    display: grid;
+}
+
+.flex-container {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; */
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+
+.flex-container > .item:nth-of-type(3), .flex-container > .item:nth-of-type(4) {
+    grid-column: 1 / 3;
+   
+}
+
+.item > img {
+    width: 150px;
+    height: 214px;
+    /* margin-right: 5px; */
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.item:first-child input {
+    width: 150px;
+    
+}
+
+.flex-container .item.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .btn-send {
+    width: 100%;
+} */
+
+.container > div {
+   display: flex;  
+   flex-direction: column; 
+   gap: 2px;
+}
+
+.container > div input[type="submit"] { /* buttons and are also items of flexbox*/
+    flex: 1 1 0;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-color: var(--container-bg);
+    cursor: pointer;
+}
+
+/* .flex-container > .item {
+    flex: 1 1 0;
+} */
+
+ /* .flex-container > .item:nth-of-type(3) {
+    flex: 1 1 auto;
+}
+
+.flex-container > .item:nth-of-type(2), 
+.flex-container > .item:nth-of-type(1) {
+    flex: 1 1 0;
+}  */
+
+.search-isbn, .search-isbn input {
+    width: 100%;
+}
+
+input#hidden_text {
+    line-height: 4;
+    border: none;
+    /* background-color: transparent; */
+}
+
+
+
+

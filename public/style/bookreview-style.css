@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: whitesmoke;
+}
+
+:root {
+  --container-bg: #0000001a;
+  --card-bg: white;
+  --edit-btn-bg: #0d6efd;
+  --edit-btn-hover-bg: #0b5ed7;
+  --edit-btn-color: #fff;
+  --delete-btn-bg: #dc3545;
+  --delete-btn-hover-color: #fff;
+  --delete-btn-hover-bg: #bb2d3b;
+}
+
+
+/* .container > .item:nth-child(2) {
+  display: flex;
+  gap: 8px;
+} */
+
+a {
+  text-decoration: none;
+}
+
+/* .container > .item:nth-child(3) form {
+  display: grid;
+  gap: 8px;
+  padding-top: 15px;
+} */
+
+#book_title_id {
+  width: 100%;
+}
+
+#reviews_commments {
+  width: 85%;
+}
+
+

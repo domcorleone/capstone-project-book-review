@@ -1,0 +1,334 @@
+:root {
+   --container-bg: #0000001a; 
+
+  --card-bg: white;
+  --edit-btn-bg: #0d6efd;
+  --edit-btn-hover-bg: #0b5ed7;
+  --edit-btn-color: #fff;
+  --delete-btn-bg: #dc3545;
+  --delete-btn-hover-color: #fff;
+  --delete-btn-hover-bg: #bb2d3b;
+  --star-bg: #ffd814;
+  --BLUE: #0376b8;
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #BEADFA;;
+}
+
+h1, hr {
+  color: whitesmoke;
+}
+
+.container {
+  background-color: var(--container-bg);
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 10px;
+  border-radius: 5px;
+  min-width: min-content;  
+  margin-bottom: 2%;
+  margin-top: 2%;
+  box-shadow: 0 0 5px #FFF8C9;
+}
+
+.item .card {
+  display: grid; /*Sames as flex direction column */
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#search-input {
+  width: 100%;
+  padding-left: 35px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+#search-input:focus, 
+textarea:focus,
+input[type="text"]:focus,
+input[type="input"]:focus,
+ input[type="date"]:focus,  
+input[type='number']:focus, 
+ select:focus {
+  box-shadow: 0 0 3px #3f69a8;
+  border-color: #3f69a8;
+  outline: none;
+}
+
+.btn-filter {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid orange;
+  cursor: pointer;
+}
+
+.btn-flex {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  align-items: center;
+}
+
+input.magnifying-glass {
+  /* solution: https://stackoverflow.com/questions/71112954/search-bar-with-magnifying-glass-inside-using-css */
+  border: 1px solid white;
+  width: 100%;
+  padding: 9px 4px 9px 35px;
+  background-image: url("../images/Magnifying_glass_icon.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 10px center;  
+}
+
+.wrap-text {
+  float: left;
+  margin-right: 8px;
+}
+
+.card-text {
+  text-align: justify;
+  margin-top: 0;
+}
+
+.card-title {
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.card-date-and-ratings {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 15px;
+}
+
+.fixed-menu {
+  height: 100vh;
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: width 1.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fixed-menu:hover {
+  width: 150px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 5px;
+  overflow: hidden;
+}
+
+li a {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+li {
+  width: max-content;
+  padding-bottom: 10px;
+}
+
+li a:hover {
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+a span {
+  margin-top: 14px;
+}
+
+.fixed-menu img {
+  width: 35px;
+}
+
+.fixed-menu svg {
+  width: 35px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.social-and-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  padding-left: 5px;
+  overflow: hidden;
+}
+
+footer > p {
+  margin: 0;
+  width: max-content;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.input-width {
+  width: 100%;
+}
+
+.text-area-size {
+  width: 80%;
+}
+
+.cardview-field {
+  display: grid;
+}
+
+.cardview-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide-cardview {
+  display: none;
+}
+
+.star-btn {
+  background-color: transparent;
+  border: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+input[type='text'], 
+input[type='date'], 
+input[type='number'], 
+input[type="input"], 
+select {
+  border-radius: 7px;
+  border: none;
+  line-height: 1;
+  padding: 4px 0 4px 4px;
+}
+
+select > option {
+  line-height: 1;
+}
+
+input[type="submit"],input[type="button"], button {
+  background-color: #D0BFFF;
+  border-radius: 10px;
+  border: none;
+  padding: 6px;
+  margin: 5px 0;
+}
+
+input[type="submit"]:hover,input[type="button"]:hover, button:hover {
+  background-color: #FFF8C9;
+}
+
+.hamburguer-icon {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  
+}
+
+.hamburguer-menu {
+  display: none;
+}
+
+.hamburguer-sub-menu {
+  display: none;  
+}
+
+.card input,
+.card select,
+.card textarea {
+    box-shadow: 0 0 3px #3f69a8;
+    border-color: #3f69a8;
+    outline: none;
+}
+
+.scroll-bar {
+  scrollbar-color: var(--container-bg);
+}
+
+
+/* TODO: Change the background color for each device
+ Mobile Devices: 319px — 480px
+ iPads and Tablets: 481px — 1200px
+ Laptops: 1201px — 1600px
+ Desktops: 1601px and more */
+
+
+@media(min-width: 250px) and (max-width: 1200px){
+  .container {
+    min-width: fit-content;       
+  }
+
+  .hamburguer-menu {
+    display: grid;
+ 
+  }
+  
+  .hamburguer-sub-menu {
+    display: '';  
+  }
+
+  .hamburguer-sub-menu span {
+    color: whitesmoke;
+  }
+
+  .fixed-menu {
+    display: none;
+  }
+
+  
+}
+
+@media(min-width: 1201px) and (max-width: 1600px){
+  .container {    
+    width: 45%;        
+  }
+
+  .hamburguer-menu {
+    display: none;
+  }  
+
+  .hamburguer-icon {
+    display: flex;
+    justify-content: center;
+  }
+ 
+}
+
+
+
+
+
+

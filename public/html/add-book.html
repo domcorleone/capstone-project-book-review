@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add new Book</title>
+    <link rel="stylesheet" href="../style/book-style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Add New Book</h1>
+        <hr />
+      </header>
+      <div>
+        <form action="/" method="POST" class="flex-container">
+          <div class="item flex">
+            <label for="">Book Cover</label>
+            <img src="../images/book-cover-sample-01.jpg" alt="" />
+            <input type="button" value="Upload Book Cover" />
+          </div>
+          <div class="item grid">
+            <label for="title-id">Book Title</label>
+            <input
+              type="text"
+              name="title"
+              id="title-id"
+              placeholder="Book Title"
+            />
+            <label for="isbn-id">ISBN</label>
+            <input
+              type="text"
+              name="isbn"
+              id="isbn-id"
+              placeholder="e.g: 52089610212103"
+            />
+            <label for="lang-id">Language</label>
+            <select name="lang" id="lang-id">
+              <option value=""></option>
+              <option value="EN">English</option>
+              <option value="PT">Portuguese</option>
+              <option value="FR">French</option>
+              <option value="DE">Germany</option>
+              <option value="ES">Spanish</option>
+            </select>
+            <label for="author-id">Author</label>
+            <select name="author" id="author-id">
+              <option value=""></option>
+              <option value="Stephen King">Stephen King</option>
+              <option value="Dan Brown">Dan Brown</option>
+              <option value="Shakespeare">Shakespeare</option>
+            </select>
+            <label for="page-number-id">Hard Cover</label>
+            <input
+              type="number"
+              name="page-number"
+              id="page-number-id"
+              min="24"
+              max=""
+            />
+            <label for="publish-date-id">Publish Date</label>
+            <input type="date" name="publish-date" id="publish-date-id" />
+          </div>
+        </form>
+      </div>
+      <label for=""><hr /></label>
+      <div class="new-grid">
+        <label for="publish-date-id">Short Description</label>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Type a short description of the book"
+        ></textarea>
+      </div>
+      <div>
+        <input type="submit" value="Add" class="btn-send" />
+        <input type="submit" value="Cancel" class="btn-send" />
+      </div>
+    </div>
+  </body>
+</html>

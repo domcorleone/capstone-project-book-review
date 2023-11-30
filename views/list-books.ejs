@@ -1,0 +1,197 @@
+<div class="container">
+  <div class="item center-text hamburguer-icon">
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+      </svg> List of Books</h1>
+      <%- include("partials/hidden-menu.ejs") %>
+  </div>
+  <hr />
+  <div class="item">
+    <!-- <form action="/search" method="POST"> -->
+      <input type="text" id="search-input" class="magnifying-glass" placeholder="Search book by title, isbn, author" />
+    <!-- </form> -->
+  </div>
+  <div class="item btn-flex">
+    <form action="/" method="POST">
+      <!-- action and method will be made by button's properties: formaction and value-->
+      <input type="hidden" id="filterTypeA_z" value="a-z" name="filter">
+      <button type="submit" class="btn-filter" formaction="/books/list" value="POST">
+        <img src="../images/funnel.svg" alt="filter">
+        a - z
+      </button>
+    </form>
+    <form action="/" method="POST">
+      <!-- action and method will be made by button's properties: formaction and value-->
+      <input type="hidden" id="filterTypeZ_a" value="z-a" name="filter">
+      <button type="submit" class="btn-filter" formaction="/books/list" value="POST">
+        <img src="../images/funnel.svg" alt="filter">
+        z - a
+      </button>
+    </form>
+    <form action="/" method="POST">
+      <input type="hidden" id="filterTypeRating" value="rating" name="filter">
+      <button type="submit" formaction="/books/list" value="POST" class="btn-filter">
+        <img src="../images/funnel.svg" alt="filter">
+        Rating
+      </button>
+    </form>
+    <form action="/" method="POST">
+      <input type="hidden" id="filterTypeOldest" value="oldest" name="filter">
+      <button type="submit" formaction="/books/list" value="POST" class="btn-filter">
+        <img src="../images/funnel.svg" alt="filter">
+        Oldest
+      </button>
+    </form>
+    <form action="/" method="POST">
+      <input type="hidden" id="filterTypeNewest" value="newest" name="filter">
+      <button type="submit" formaction="/books/list" value="POST" class="btn-filter">
+        <img src="../images/funnel.svg" alt="filter">Newest
+      </button>
+    </form>
+  </div>
+  <!-- Show books -->
+  <% if (locals.books && books.length> 0) { %>
+    <% for (let book of books) { %>
+      <div class="item">
+        <div class="card">
+          <div class="card-title">
+            <p id="title<%=book.id%>">
+              <%= book.title %>
+            </p>
+            <input id="titleInput<%=book.id%>" type="hidden" value="<%=book.title%>">
+            <hr />
+          </div>
+          <div class="card-date-and-ratings">
+            <small><strong>Published Date:</strong> <span id="publishDateSpan<%=book.id%>">
+                <%= book.publish_date.toISOString().split('T')[0]%>
+              </span>
+              <input id="publishDateInput<%=book.id%>" type="hidden"
+                value="<%=book.publish_date.toISOString().split('T')[0]%>">
+            </small>
+            <small>
+              <label for="isbn"><strong>ISBN:</strong> </label>
+              <span id="isbnSpan<%=book.id%>"><%=book.isbn%></span>
+              <input type="hidden" value="<%=book.isbn%>" name="isbn" id="isbnInput<%=book.id%>">
+            </small>
+            <small><strong>Author:</strong> <span id="authorSpan<%=book.id%>">
+                <%=book.book_author%>
+              </span>
+              <select name="author" id="authorSelect<%=book.id%>" hidden>
+                <option value="<%=book.author_id%>">
+                  <%=book.book_author%>
+                </option>
+                <% if (locals.authors) { %>
+                  <% authors.forEach(author=> { %>
+                    <option value="<%=author.id%>">
+                      <%=author.full_name%>
+                    </option>
+                    <% }) %>
+                      <% } %>
+              </select>
+            </small>
+          </div>
+          <div class="card-content">
+            <img src="<%= book.book_cover_url %>" alt="book-conver" width="100" class="wrap-text" />
+            <p class="card-text">
+              <span id="descSpan<%=book.id%>">
+                <%= book.description%>
+              </span>
+              <textarea name="description" id="descTextArea<%=book.id%>" cols="0" rows="10" hidden>
+                  <%= book.description %>
+                </textarea>
+            </p>
+          </div>
+          <div class="social-and-actions">
+            <div>
+              <% if ( locals.reviews ) { %>
+                <% let show=reviews.find( review=> review.isbn === book.isbn ) ? 'disabled' : '' %>
+                  <!-- <p>Show: <%= show %></p>                      -->
+                  <button id="add-review-bt<%=book.id%>" <%=show %> onclick="showReviewForm('<%=book.id%>')">
+                    <img src="../images/plus-circle.svg" alt="Add Review Icon" /> Add Review
+                  </button>
+                  <% } %>
+            </div>
+            <div>
+              <button id="edit-btn<%=book.id%>" onclick="editBook('<%=book.id %>', '<%=book.title %>')">
+                <img src="../images/pencil-square.svg" alt="Edit Image Icon" /> Edit
+              </button>
+              <button id="delete-btn<%=book.id%>" onclick="deleteBook('<%=book.id %>', '<%=book.title %>')"><img src="../images/trash.svg"
+                  alt="Delete Image Icon" /> Delete</button>
+              <form action="/books/update" method="POST">
+                <input type="hidden" id="book_id" name="bookId" value="">
+                <input type="hidden" id="title" name="title" value="">
+                <input type="hidden" id="author_id" name="authorId" value="">
+                <input type="hidden" id="publish_date" name="publishDate" value="">
+                <input type="hidden" id="isbn" name="isbn" value="">
+                <input type="hidden" id="description" name="shortDesc" value="">
+                <input type="submit" id="update_btn" name="updateBtn" hidden>
+              </form>
+              <form action="/books/delete" method="POST">
+                <input type="hidden" id="book_id_to_delete" name="bookIdToDelete">
+                <input type="hidden" id="book_title_to_delete" name="bookTitleToDelete">
+                <input type="submit" id="btn_delete" hidden>
+              </form>
+            </div>
+          </div>
+          <hr />
+          <div id="cardview<%=book.id%>" class="hide-cardview">
+           <form action="/reviews/new" method="POST">
+            <div class="cardview-item">
+              <div class="cardview-flex">
+                <div class="cardview-field">
+                  <label for="rating_id">Overall rating</label>
+                  <div>
+                    <!-- 🌟🌟🌟🌟🌟 -->
+                    <button id="star-one<%=book.id%>" class="star-btn" onclick="changeStar('star-one', '<%=book.id%>')">
+                      <img src="../images/star.svg" alt="star one">
+                    </button>
+                    <button id="star-two<%=book.id%>" class="star-btn" onclick="changeStar('star-two', '<%=book.id%>')">
+                      <img src="../images/star.svg" alt="star two">
+                    </button>
+                    <button id="star-three<%=book.id%>" class="star-btn" onclick="changeStar('star-three', '<%=book.id%>')">
+                      <img src="../images/star.svg" alt="star three">
+                    </button>
+                    <button id="star-four<%=book.id%>" class="star-btn" onclick="changeStar('star-four', '<%=book.id%>')">
+                      <img src="../images/star.svg" alt="star four">
+                    </button>
+                    <button id="star-five<%=book.id%>" class="star-btn" onclick="changeStar('star-five', '<%=book.id%>')">
+                      <img src="../images/star.svg" alt="star five">
+                    </button>
+                  </div>
+                  <input type="hidden" id="rating_id<%=book.id%>" name="rating" value="">
+                  <input type="hidden" id="book<%=book.id%>" name="book_id" value="">
+                </div>
+                <div class="cardview-field">
+                  <label for="reviewer">Reviewer's Name</label>
+                  <input id="reviewer_id" name="reviewer" type="text" value="" placeholder="Write your name here" required>
+                </div>
+                <div class="cardview-field">
+                  <label for="date_review">Review date</label>
+                  <% let date=new Date(); /*current date is one day ahead of us calendar*/ let day=date.getDate();
+                    /* rewind cuurent date to one day */ date.setDate(day); //
+                    https://www.tutorialspoint.com/How-to-subtract-days-from-a-date-in-JavaScript %>
+                    <input id="date_review_id" name="date_review" type="date" value="<%=(date).toJSON().slice(0, 10)%>" >
+                </div>
+              </div>
+              <hr />
+              <div class="cardview-field">
+                <label for="review_comment_id">Add written review</label>
+                <textarea name="review_comment" id="review_comment_id" cols="30" rows="10" placeholder="Add your review here..." required></textarea>
+              </div>
+              <div class="cardview-field">
+                <input type="submit" value="Create Review">
+              </div>
+            </div>
+           </form>
+          </div>
+        </div>
+      </div>
+      <% } %>
+        <% } else { %>
+          <p>
+            <%=error%>
+          </p>
+          <% } %>
+</div>

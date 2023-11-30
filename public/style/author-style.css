@@ -1,0 +1,77 @@
+
+
+* {
+    box-sizing: border-box;   
+}
+
+:root {
+    --container-bg: #0000001a;
+    --card-bg: white;
+    --edit-btn-bg: #0d6efd;
+    --edit-btn-hover-bg: #0b5ed7;
+    --edit-btn-color: #fff;
+    --delete-btn-bg: #dc3545;
+    --delete-btn-hover-color: #fff;
+    --delete-btn-hover-bg: #bb2d3b;
+  }
+
+body {
+    color: whitesmoke;
+}
+
+.container {
+    width: 40%; /* will overwrite the class container from style.css*/
+}
+
+.form-container {    
+    /* display: flex;
+    flex-direction: column; */
+    /* sames as */
+    display: grid;
+}
+
+.item.photo-section {
+    /* display: grid;    
+    justify-content: left; */
+    display: flex;
+    flex-direction: column;
+}
+
+#hr-id {
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 0.1px solid lightgrey;
+    line-height: 2px;   
+}
+
+#photo-id {
+    margin: 10px 0;
+    width: 90px; /*will hide text path related to the image*/
+}
+
+#photo {
+    align-self: center;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#photo-path-id a {
+    color: whitesmoke;
+}
+
+#photo-path-id a:hover {
+    color: purple;
+}
+
+/* .card input,
+.card select,
+.card textarea {
+    box-shadow: 0 0 3px #3f69a8;
+    border-color: #3f69a8;
+    outline: none;
+} */
+
+
+

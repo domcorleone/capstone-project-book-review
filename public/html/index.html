@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="@domcorleone">
+        <meta name="keywords" content="html, css, javascript, node.js, express.js, axios, API, RESTFUL API,postgressql...">
+        <meta name="desciption" content="This website is intended to be used as book reviewer adding notes in all registered books to keep prevent forgetting the salient parts of a book we've already read in past.">
+        <link rel="stylesheet" href="../public/style/style.css">
+    </head>
+    <body>
+        <div class="fixed-menu">
+            <ul>
+                <li><a href="">
+                    <img src="../public/images/person-add.svg" alt="author"> 
+                    <span>Add Author</span>
+                </a></li>
+                <li><a href="">
+                    <img src="../public/images/book.svg" alt="">
+                    <span>Add Book</span>
+                </a></li>
+                <li>
+                    <a href="">
+                        <img src="images/person-lines-fill.svg" alt="">
+                        <span>List Authors</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="../public/images/list.svg" alt="">
+                        <span>List Books</span>
+                    </a>
+                </li>                
+            </ul>
+            <footer>
+                <p>©2023 Copyright</p>
+            </footer>
+        </div>
+        <div class="container">
+            <div class="item">
+                <form action="/search" method="POST">
+                    <input type="text" id="search-input" class="magnifying-glass">                   
+                </form>
+            </div>
+            <div class="item btn-flex">
+                <button type="submit" formaction="/" value="POST" class="btn-filter">a - z </button>
+                <button type="submit" formaction="/" value="POST" class="btn-filter">z - a </button>
+                <button type="submit" formaction="/" value="POST" class="btn-filter">Rating </button>
+                <button type="submit" formaction="/" value="POST" class="btn-filter">Oldest </button>
+                <button type="submit" formaction="/" value="POST" class="btn-filter">Newest </button>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <div class="card-title">
+                        <p>Title: Some title goes in here...</p>
+                        <hr>
+                    </div>
+                    <div class="card-date-and-ratings">
+                        <small>Date Posted: Nov 13, 2023</small>
+                       <small> Ratings: ⭐ ⭐ ⭐ ⭐ ⭐</small> 
+                    </div>
+                    <div class="card-content">
+                        <img src="../public/images/book-cover-sample-01.jpg" alt="book conver" width="100" class="wrap-text">
+                        <p class="card-text">
+                            Cras non dui ullamcorper ipsum posuere tristique id semper nulla. Proin maximus tellus non rutrum congue. In mattis congue libero, at congue nulla placerat at. Mauris sit amet metus fringilla, elementum lectus gravida, varius ipsum. Integer mattis erat augue, sed aliquet lectus molestie eu. Mauris viverra justo eget enim volutpat, vitae imperdiet mi varius. Integer sit amet ante enim. Duis et risus suscipit, facilisis nibh sit amet, laoreet nisl. Praesent feugiat efficitur facilisis. Vivamus iaculis auctor dolor, a finibus urna pellentesque quis. Pellentesque lacus lectus, placerat non hendrerit quis, consectetur pulvinar turpis.In convallis neque non imperdiet lacinia. Duis vitae est justo. Nullam imperdiet ultricies nunc vel ornare. Aliquam sed porttitor nisl. Vestibulum condimentum iaculis blandit. Aenean commodo mauris et diam egestas, sed imperdiet leo euismod. Nullam viverra quam id ullamcorper scelerisque. Donec auctor sem ut venenatis fringilla. Fusce scelerisque nisl et sapien volutpat, ac pharetra urna dapibus. Aliquam et mauris porta, vestibulum felis et, molestie ipsum. Morbi efficitur, neque eu mattis efficitur, nibh leo suscipit augue, at vestibulum lorem neque nec dui. In hac habitasse platea dictumst. Duis bibendum libero euismod lacus vehicula, et interdum urna posuere.
+                        </p>
+                    </div>
+                    <div class="social-and-actions">
+                        <div>
+                            <button>
+                                <img src="../public/images/hand-thumbs-down.svg" alt="hand-thumbs-down"> <small>10</small>
+                            </button>
+                            <button>
+                                <img src="../public/images/hand-thumbs-up.svg" alt="hand-thumbs-up"><small>1</small>
+                            </button>
+                            <button>
+                                <img src="../public/images/chat.svg" alt="chat"><small> 1M comments</small>
+                            </button>
+                        </div>
+                        <div>
+                            <button><img src="../public/images/pencil-square.svg" alt=""> Edit</button>
+                            <button> <img src="../public/images/trash.svg" alt=""> Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="card">
+                    <div class="card-title">
+                        <p>Title01: Some title goes in here...</p>
+                        <hr>
+                    </div>
+                    <div class="card-date-and-ratings">
+                        <small>Date Posted: Nov 13, 2023</small>
+                       <small> Ratings: ⭐ ⭐ ⭐ ⭐ ⭐</small> 
+                    </div>
+                    <div class="card-content">
+                        <img src="../public/images/book-cover-sample-02.jpg" alt="book conver" width="100" class="wrap-text">
+                        <p class="card-text">
+                            Cras non dui ullamcorper ipsum posuere tristique id semper nulla. Proin maximus tellus non rutrum congue. In mattis congue libero, at congue nulla placerat at. Mauris sit amet metus fringilla, elementum lectus gravida, varius ipsum. Integer mattis erat augue, sed aliquet lectus molestie eu. Mauris viverra justo eget enim volutpat, vitae imperdiet mi varius. Integer sit amet ante enim. Duis et risus suscipit, facilisis nibh sit amet, laoreet nisl. Praesent feugiat efficitur facilisis. Vivamus iaculis auctor dolor, a finibus urna pellentesque quis. Pellentesque lacus lectus, placerat non hendrerit quis, consectetur pulvinar turpis.In convallis neque non imperdiet lacinia. Duis vitae est justo. Nullam imperdiet ultricies nunc vel ornare. Aliquam sed porttitor nisl. Vestibulum condimentum iaculis blandit. Aenean commodo mauris et diam egestas, sed imperdiet leo euismod. Nullam viverra quam id ullamcorper scelerisque. Donec auctor sem ut venenatis fringilla. Fusce scelerisque nisl et sapien volutpat, ac pharetra urna dapibus. Aliquam et mauris porta, vestibulum felis et, molestie ipsum. Morbi efficitur, neque eu mattis efficitur, nibh leo suscipit augue, at vestibulum lorem neque nec dui. In hac habitasse platea dictumst. Duis bibendum libero euismod lacus vehicula, et interdum urna posuere.
+                        </p>
+                    </div>
+                    <div class="social-and-actions">
+                        <div>
+                            <button>
+                                <img src="../public/images/hand-thumbs-down.svg" alt="hand-thumbs-down"> <small>10</small>
+                            </button>
+                            <button>
+                                <img src="../public/images/hand-thumbs-up.svg" alt="hand-thumbs-up"><small>0</small>
+                            </button>
+                            <button>
+                                <img src="../public/images/chat.svg" alt="chat"><small> 1.2K comments</small>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="btn-edit"><i><img src="../public/images/pencil-square.svg" alt=""> </i>Edit</button>
+                            <button class="btn-delete"> <img src="../public/images/trash.svg" alt=""> Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>
