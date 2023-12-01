@@ -110,4 +110,4 @@ This website is also responsive and will create an hamburguer menu when you go t
 ## Credits
 
 - [open library](https://openlibrary.org/dev/docs/api/covers) for providing books covers and authors pictures
-- [SweetAlert](https://github.com/sweetalert2/sweetalert2) Free awsome customize javasrit alerts
+- [SweetAlert](https://github.com/sweetalert2/sweetalert2) Free awesome customize javasrit alerts
