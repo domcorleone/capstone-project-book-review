@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import axios from "axios";
 import pg from "pg";
 import fs from "fs";
+import "dotenv/config";
 
 // import Swal from "sweetalert2";
 
@@ -10,13 +11,13 @@ const app = express();
 const port = 3000;
 const openLibraryURL = "https://covers.openlibrary.org/";
 const db_param = {
-  host: "localhost",
-  user: "postgres",
-  database: "book_review",
-  password: "postgres2023",
-  port: 5432,
+  host: process.env.HOST,
+  user: process.env.USER,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
 };
-
+console.log(db_param);
 let message = "";
 let authors = [];
 let countries = [];
